@@ -1,2 +1,5 @@
-# elementa
-Elementa Micro Framework for HTML
+# Elementa
+
+Elementa – Lightweight and Minimal HTML Microframework
+
+**UNDEFINED**
