@@ -7,8 +7,7 @@ window.elementa = {
     "templates": {},
     
     "render": {
-    
-    
+        
         /**
          * Renders a template by tag name, applying properties and children.
          * 
