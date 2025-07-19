@@ -36,6 +36,18 @@ Copy `elementa.js` to your project and include it in your HTML, for example:
 </html>
 ```
 
+You can use the CDN link for quick setup:
+
+```html
+<html>
+    <head>
+        <script src="https://dhbmarcos.github.io/elementa/src/elementa.min.js"></script>
+    </head>
+</html>
+```
+
+For specific versions, use `https://github.com/dhbmarcos/elementa/releases/download/0.1.0/elementa.min.js` .Replace `0.1.0` with the desired version number. See releases on GitHub for available versions.
+
 ## Quick Start Example
 
 1. Include the Script
