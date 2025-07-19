@@ -67,6 +67,8 @@ For specific versions, use `https://github.com/dhbmarcos/elementa/releases/downl
   <card class="card">
     <h1 id="title"></h1>
     <p id="text"></p>
+    <div id="inner"></div>
+    <small>by Elementa</small>
   </card>
 </template>
 ```
@@ -80,6 +82,10 @@ For specific versions, use `https://github.com/dhbmarcos/elementa/releases/downl
 ```
 
 When the page loads, elementa.js automatically replaces every custom tag (like `<card>`) matching a template with the rendered DOM.
+
+Use the `id` attributes in your template to bind properties from the custom tag attributes. For example, the `title` attribute of `<card>` will populate the `<h1 id="title"></h1>` element inside the template.
+
+Use the `inner` id to render child elements inside the template at position. If you not specify `inner`, the children will be appended to the end of the template.
 
 ## Hello World Example
 
@@ -114,6 +120,8 @@ When the page loads, elementa.js automatically replaces every custom tag (like `
             <card class="card">
                 <h1 id="title"></h1>
                 <p id="text"></p>
+                <div id="inner"></div>
+                <small>by Elementa</small>
             </card>
         </template>
 
