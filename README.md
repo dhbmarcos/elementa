@@ -67,7 +67,6 @@ For specific versions, use `https://github.com/dhbmarcos/elementa/releases/downl
   <card class="card">
     <h1 id="title"></h1>
     <p id="text"></p>
-    <div id="inner"></div>
   </card>
 </template>
 ```
@@ -115,7 +114,6 @@ When the page loads, elementa.js automatically replaces every custom tag (like `
             <card class="card">
                 <h1 id="title"></h1>
                 <p id="text"></p>
-                <div id="inner"></div>
             </card>
         </template>
 
