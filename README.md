@@ -9,7 +9,7 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
 
 - Declarative custom tags with data binding
 - Supports nested components
-- Ultra-light, dependency-free
+- Ultra-light, dependency-free **(1kB minified)**
 - Simple integration—just include the script
 
 ## How it Works
