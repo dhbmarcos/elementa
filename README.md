@@ -5,81 +5,124 @@ Elementa – Lightweight and Minimal HTML Microframework
 Is a lightweight and extensible client-side template engine for rendering custom HTML tags based on `<template>` elements.
 It makes creating reusable, nested UI components in plain HTML and JavaScript simple and elegant—no build tools or frameworks required.
 
-## Features
+## Features of Elementa
 
 - Declarative custom tags with data binding
 - Supports nested components
 - Ultra-light, dependency-free **(1kB minified)**
 - Simple integration—just include the script
 
-## How it Works
+## How Elementa Works
 
 - Templates are defined with `<template>` elements in your HTML.
 - Each template's root element tag name (e.g., card) becomes the custom tag you can use.
 - Attributes on your custom tags are automatically mapped to elements inside the template with matching id attributes.
 - Child elements are rendered recursively.
 
-## Installation
+## Hello World Elementa!
 
-Copy `elementa.js` to your project and include it in your HTML, for example:
+1. Create a simple HTML file.
+
+2. Add content below to the file:
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Elementa Example</title>
+            <style>
+                card.card {
+                    display:       block;
+                    border:        1px solid #999;
+                    border-radius: 8px;
+                    padding:       1rem;
+                    margin:        0.5rem;
+                    background:    #f8f8f8;
+                }
+                card.card card.card {
+                    background:   #e4f2ff;
+                    border-color: #3399cc;
+                }
+            </style>
+            
+            <!-- Script included in the head! -->
+            <script src="https://dhbmarcos.github.io/elementa/src/elementa.min.js"></script>
+        </head>
+        <body>
+
+            <!-- Template definition -->
+            <template>
+                <card class="card">
+                    <h1 id="title"></h1>
+                    <p id="text"></p>
+                    <div id="inner"></div>
+                    <small>by Elementa</small>
+                </card>
+            </template>
+
+            <!-- Declarative use of custom elements -->
+            <card title="Header script" text="Elementa.">
+                <card title="Nested card" text="It works perfectly!"></card>
+            </card>
+        </body>
+    </html>
+    ```
+
+3. Open the file in your web browser.
+
+## How to Install Elementa
+
+### Online CDN
+
+Use the CDN link for quick setup:
 
 ```html
-<html>
-    <head>
-        <!-- Your header content here -->
-
-        <script src="elementa.js"></script>
-    </head>
-    <body>
-        <!-- Your body content here -->
-    </body>
-</html>
-```
-
-You can use the CDN link for quick setup:
-
-```html
-<html>
-    <head>
-        <script src="https://dhbmarcos.github.io/elementa/src/elementa.min.js"></script>
-    </head>
-</html>
+<script src="https://dhbmarcos.github.io/elementa/src/elementa.min.js"></script>
 ```
 
 For specific versions, use `https://github.com/dhbmarcos/elementa/releases/download/0.1.0/elementa.min.js` .Replace `0.1.0` with the desired version number. See releases on GitHub for available versions.
 
-## Quick Start Example
+### Offline
+
+Download `elementa.js` or `elementa.min.js` to your project and include it in your HTML, for example:
+
+```html
+<script src="elementa.js"></script>
+```
+
+## How to Use Elementa
 
 1. Include the Script
 
-```html
-<html>
-    <head>
-        <script src="elementa.js"></script>
-    </head>
-</html>
-```
+    ```html
+    <html>
+        <head>
+            <script src="https://dhbmarcos.github.io/elementa/src/elementa.min.js"></script>
+        </head>
+    </html>
+    ```
 
 2. Define a Template in HTML:
 
-```html
-<template>
-  <card class="card">
-    <h1 id="title"></h1>
-    <p id="text"></p>
-    <div id="inner"></div>
-    <small>by Elementa</small>
-  </card>
-</template>
-```
+    ```html
+    <template>
+    <card class="card">
+        <h1 id="title"></h1>
+        <p id="text"></p>
+        <div id="inner"></div>
+        <small>by Elementa</small>
+    </card>
+    </template>
+    ```
 
 3. Use Declarative Syntax
 
-```html
-<card title="Hello!" text="This is a declarative card.">
-  <card title="Nested" text="This is a nested card!"></card>
-</card>
-```
+    ```html
+    <card title="Hello!" text="This is a declarative card.">
+        <card title="Nested" text="This is a nested card!"></card>
+    </card>
+    ```
 
 When the page loads, elementa.js automatically replaces every custom tag (like `<card>`) matching a template with the rendered DOM.
 
@@ -87,53 +130,7 @@ Use the `id` attributes in your template to bind properties from the custom tag 
 
 Use the `inner` id to render child elements inside the template at position specified. If you not specify `inner`, the children will be appended to the end of the template.
 
-## Hello World Example
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Elementa Example</title>
-        <style>
-            card.card {
-                display:       block;
-                border:        1px solid #999;
-                border-radius: 8px;
-                padding:       1rem;
-                margin:        0.5rem;
-                background:    #f8f8f8;
-            }
-            card.card card.card {
-                background:   #e4f2ff;
-                border-color: #3399cc;
-            }
-        </style>
-        
-        <!-- Script included in the head! -->
-        <script src="https://dhbmarcos.github.io/elementa/src/elementa.min.js"></script>
-    </head>
-    <body>
-
-        <!-- Template definition -->
-        <template>
-            <card class="card">
-                <h1 id="title"></h1>
-                <p id="text"></p>
-                <div id="inner"></div>
-                <small>by Elementa</small>
-            </card>
-        </template>
-
-        <!-- Declarative use of custom elements -->
-        <card title="Header script" text="Elementa.">
-            <card title="Nested card" text="It works perfectly!"></card>
-        </card>
-    </body>
-</html>
-```
-
-## Manual Rendering Example (via JavaScript)
+## JavaScript API
 
 You can also generate cards programmatically using JavaScript:
 
@@ -157,7 +154,9 @@ You can also generate cards programmatically using JavaScript:
 </script>
 ```
 
-# API
+# Elementa API
+
+## Rendering Templates
 
 > **elementa.render.tag**(*tag*, *properties*, *children*)
 
