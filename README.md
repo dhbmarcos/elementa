@@ -51,6 +51,7 @@ For specific versions, use `https://github.com/dhbmarcos/elementa/releases/downl
 ## Quick Start Example
 
 1. Include the Script
+
 ```html
 <html>
     <head>
@@ -60,6 +61,7 @@ For specific versions, use `https://github.com/dhbmarcos/elementa/releases/downl
 ```
 
 2. Define a Template in HTML:
+
 ```html
 <template>
   <card class="card">
@@ -71,6 +73,7 @@ For specific versions, use `https://github.com/dhbmarcos/elementa/releases/downl
 ```
 
 3. Use Declarative Syntax
+
 ```html
 <card title="Hello!" text="This is a declarative card.">
   <card title="Nested" text="This is a nested card!"></card>
@@ -80,6 +83,7 @@ For specific versions, use `https://github.com/dhbmarcos/elementa/releases/downl
 When the page loads, elementa.js automatically replaces every custom tag (like `<card>`) matching a template with the rendered DOM.
 
 ## Hello World Example
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -102,7 +106,7 @@ When the page loads, elementa.js automatically replaces every custom tag (like `
         </style>
         
         <!-- Script included in the head! -->
-        <script src="elementa.js"></script>
+        <script src="https://dhbmarcos.github.io/elementa/src/elementa.min.js"></script>
     </head>
     <body>
 
