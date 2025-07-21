@@ -173,3 +173,5 @@ Returns: The rendered DOM Element or *null*.
 # License
 
 MIT License.
+
+***Deo ominis gloria***
