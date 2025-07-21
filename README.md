@@ -47,7 +47,7 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
             </style>
             
             <!-- Script included in the head! -->
-            <script src="https://dhbmarcos.github.io/elementa/src/elementa.min.js"></script>
+            <script src="https://elementa.js.org/dist/0.1.0.js"></script>
         </head>
         <body>
 
@@ -78,17 +78,17 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
 Use the CDN link for quick setup:
 
 ```html
-<script src="https://dhbmarcos.github.io/elementa/src/elementa.min.js"></script>
+<script src="https://elementa.js.org/dist/0.1.0.js"></script>
 ```
 
-For specific versions, use `https://github.com/dhbmarcos/elementa/releases/download/0.1.0/elementa.min.js` .Replace `0.1.0` with the desired version number. See releases on GitHub for available versions.
+Replace `0.1.0` with the desired version number. See GitHub repository for available versions.
 
 ### Offline
 
-Download `elementa.js` or `elementa.min.js` to your project and include it in your HTML, for example:
+Download [elementa-0.1.0.min.js](dist/elementa-0.1.0.min.js) to your project and include it in your HTML, for example:
 
 ```html
-<script src="elementa.js"></script>
+<script src="elementa-0.1.0.min.js"></script>
 ```
 
 ## How to Use Elementa
@@ -98,7 +98,7 @@ Download `elementa.js` or `elementa.min.js` to your project and include it in yo
     ```html
     <html>
         <head>
-            <script src="https://dhbmarcos.github.io/elementa/src/elementa.min.js"></script>
+            <script src="https://elementa.js.org/dist/0.1.0.js"></script>
         </head>
     </html>
     ```
@@ -170,8 +170,20 @@ Parameters:
 
 Returns: The rendered DOM Element or *null*.
 
-# License
+# About Elementa
+
+## Versioning
+
+> Currently, Elementa is in **unstable** state. It is ready for testing and production in limited scope, but not recommended for critical applications yet.
+
+Elementa uses [Semantic Versioning](https://semver.org/) for releases. The version number is in the format `MAJOR.MINOR.PATCH`. Elementa uses STRL (Simplest Readiness Level) for versioning definitions of maturity level, like below:
+
+- **undefided**: Have a indefinitions in code, product or market. Not ready for production.
+- **unstable**: In development. Ready for tests or production in limited scope.
+- **stable**: Ready for production in general use.
+
+## License
 
 MIT License.
 
-***Deo ominis gloria***
+***Deo omnis gloria***
