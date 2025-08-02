@@ -31,15 +31,14 @@ window.elementa = {
                 return null;
             }
 
-            let clone = template.content.cloneNode(true);
-            let root  = clone.querySelector(tag);
+            let clone = template.cloneNode(true);
 
             for (let property in properties) {
                 if (!properties.hasOwnProperty(property)) {
                     continue
                 };
                 
-                let target = root.querySelector("#" + property);
+                let target = clone.querySelector("#" + property);
                 if (target) {
                     let value = properties[property];
                     if (value instanceof Node) {
@@ -52,13 +51,13 @@ window.elementa = {
             }
 
             if (children.length > 0) {
-                let container = root.querySelector("#inner") || root;
+                let container = clone.querySelector("#inner") || clone;
                 for (let child of children) {
                     container.appendChild(child);
                 }
             }
 
-            return root;
+            return clone;
         },
 
         /**
@@ -90,11 +89,28 @@ window.elementa = {
             {
                 window.elementa.templates = {};
                 let templates = document.querySelectorAll("template");
-
+                               
                 for (let template of templates) {
-                    let element = template.content.firstElementChild;
-                    if (element && element.tagName) {
-                        window.elementa.templates[element.tagName.toLowerCase()] = template;
+                    let name = template.getAttribute("name");
+                    if (!name) {
+                        continue;
+                    }
+                    template.attributes.removeNamedItem("name");
+
+                    let tag = document.createElement(name);
+
+                    let attributes = template.attributes;
+                    for (let attribute of attributes) {
+                        tag.setAttribute(attribute.name, attribute.value);
+                    }
+
+                    let content = template.innerHTML;
+                    if (content) {
+                        tag.innerHTML = content;
+                    }
+
+                    if (name) {
+                        window.elementa.templates[name.toUpperCase()] = tag;
                     }
                 }
             }
@@ -118,7 +134,7 @@ window.elementa = {
                         for (let child of original_element.children)
                         {
                             let inner_properties = extract_properties(child);
-                            children.push(window.elementa.render.tag(child.tagName.toLowerCase(), inner_properties));
+                            children.push(window.elementa.render.tag(child.tagName, inner_properties));
                         }
 
                         let new_element = window.elementa.render.tag(tag, properties, children);
