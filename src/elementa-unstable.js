@@ -25,7 +25,7 @@ window.elementa = {
                 children = [];
             }
 
-            let template = window.elementa.templates[tag];
+            let template = window.elementa.templates[tag.toUpperCase()];
             if (!template)
             {
                 return null;
