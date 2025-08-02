@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright (c) 2025 D. H. B. Marcos
+Copyright (c) 2025 D. H. B. Marcos. Deo omnis gloria.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

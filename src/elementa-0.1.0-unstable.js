@@ -1,3 +1,7 @@
+/* 
+ * Copyright (c) 2025 D. H. B. Marcos. Deo omnis gloria.
+*/
+
 window.elementa = {
     /**
      * Stores loaded HTML templates, indexed by tag name.
