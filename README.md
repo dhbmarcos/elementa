@@ -47,12 +47,12 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
             </style>
             
             <!-- Script included in the head! -->
-            <script src="https://elementa.js.org/dist/0.2.0.js"></script>
+            <script src="https://elementa.js.org/dist/0.3.0.js"></script>
         </head>
         <body>
 
             <!-- Template definition -->
-            <template name="card" class="card">
+            <template id="card" class="card">
                 <h1 id="title"></h1>
                 <p id="text"></p>
                 <div id="inner"></div>
@@ -76,17 +76,17 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
 Use the CDN link for quick setup:
 
 ```html
-<script src="https://elementa.js.org/dist/0.2.0.js"></script>
+<script src="https://elementa.js.org/dist/0.3.0.js"></script>
 ```
 
-Replace `0.2.0` with the desired version number. See GitHub repository for available versions.
+Replace `0.3.0` with the desired version number. See GitHub repository for available versions.
 
 ### Offline
 
-Download [elementa-0.2.0.min.js](dist/elementa-0.2.0.min.js) to your project and include it in your HTML, for example:
+Download [elementa-0.3.0.min.js](dist/elementa-0.3.0.min.js) to your project and include it in your HTML, for example:
 
 ```html
-<script src="elementa-0.2.0.min.js"></script>
+<script src="elementa-0.3.0.min.js"></script>
 ```
 
 ## How to Use Elementa
@@ -96,7 +96,7 @@ Download [elementa-0.2.0.min.js](dist/elementa-0.2.0.min.js) to your project and
     ```html
     <html>
         <head>
-            <script src="https://elementa.js.org/dist/0.2.0.js"></script>
+            <script src="https://elementa.js.org/dist/0.3.0.js"></script>
         </head>
     </html>
     ```
@@ -104,7 +104,7 @@ Download [elementa-0.2.0.min.js](dist/elementa-0.2.0.min.js) to your project and
 2. Define a Template in HTML:
 
     ```html
-    <template name="card" class="card">
+    <template id="card" class="card">
         <h1 id="title"></h1>
         <p id="text"></p>
         <div id="inner"></div>
@@ -120,7 +120,7 @@ Download [elementa-0.2.0.min.js](dist/elementa-0.2.0.min.js) to your project and
     </card>
     ```
 
-When the page loads, elementa.js automatically replaces every custom tag (like `<card>`) matching a template with the rendered DOM. Use the `name` attribute in the `<template>` to define your custom tag name, like `card` in the example above.
+When the page loads, elementa.js automatically replaces every custom tag (like `<card>`) matching a template with the rendered DOM. Use the `id` attribute in the `<template>` to define your custom tag name, like `card` in the example above.
 
 Use the `id` attributes in your template to bind properties from the custom tag attributes. For example, the `title` attribute of `<card>` will populate the `<h1 id="title"></h1>` element inside the template.
 
