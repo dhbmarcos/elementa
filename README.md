@@ -32,7 +32,7 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
             <meta charset="UTF-8">
             <title>Elementa Example</title>
             <style>
-                card.card {
+                card {
                     display:       block;
                     border:        1px solid #999;
                     border-radius: 8px;
@@ -40,7 +40,7 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
                     margin:        0.5rem;
                     background:    #f8f8f8;
                 }
-                card.card card.card {
+                card card {
                     background:   #e4f2ff;
                     border-color: #3399cc;
                 }
