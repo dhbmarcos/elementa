@@ -52,13 +52,11 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
         <body>
 
             <!-- Template definition -->
-            <template>
-                <card class="card">
-                    <h1 id="title"></h1>
-                    <p id="text"></p>
-                    <div id="inner"></div>
-                    <small>by Elementa</small>
-                </card>
+            <template name="card" class="card">
+                <h1 id="title"></h1>
+                <p id="text"></p>
+                <div id="inner"></div>
+                <small>by Elementa</small>
             </template>
 
             <!-- Declarative use of custom elements -->
@@ -106,13 +104,11 @@ Download [elementa-0.2.0.min.js](dist/elementa-0.2.0.min.js) to your project and
 2. Define a Template in HTML:
 
     ```html
-    <template>
-    <card class="card">
+    <template name="card" class="card">
         <h1 id="title"></h1>
         <p id="text"></p>
         <div id="inner"></div>
         <small>by Elementa</small>
-    </card>
     </template>
     ```
 
@@ -124,7 +120,7 @@ Download [elementa-0.2.0.min.js](dist/elementa-0.2.0.min.js) to your project and
     </card>
     ```
 
-When the page loads, elementa.js automatically replaces every custom tag (like `<card>`) matching a template with the rendered DOM.
+When the page loads, elementa.js automatically replaces every custom tag (like `<card>`) matching a template with the rendered DOM. Use the `name` attribute in the `<template>` to define your custom tag name, like `card` in the example above.
 
 Use the `id` attributes in your template to bind properties from the custom tag attributes. For example, the `title` attribute of `<card>` will populate the `<h1 id="title"></h1>` element inside the template.
 
