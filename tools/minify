@@ -1,0 +1,13 @@
+#!/bin/bash
+
+npm install --global uglify-js
+
+if [ "$(basename "$(pwd)")" == 'tools' ]
+then
+    cd ..;
+fi
+
+mkdir    --verbose --parents tmp;
+uglifyjs --verbose src/elementa-unstable.js --compress --mangle --keep-fargs --output tmp/buffer;
+echo '/* Copyright (c) 2025 D. H. B. Marcos. Deo omnis gloria. */' > tmp/copyright;
+cat tmp/copyright tmp/buffer > tmp/elementa-unstable+$(date +%s).min.js;
