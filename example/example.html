@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Elementa Example</title>
+        <style>
+            card.card {
+                display:       block;
+                border:        1px solid #999;
+                border-radius: 8px;
+                padding:       1rem;
+                margin:        0.5rem;
+                background:    #f8f8f8;
+            }
+            card.card card.card {
+                background:   #e4f2ff;
+                border-color: #3399cc;
+            }
+        </style>
+        
+        <!-- Script included in the head! -->
+        <script src="https://elementa.js.org/dist/0.2.0.js"></script>
+    </head>
+    <body>
+
+        <!-- Template definition -->
+        <template name="card" class="card">
+            <h1 id="title"></h1>
+            <p id="text"></p>
+            <div id="inner"></div>
+            <small>by Elementa</small>
+        </template>
+
+        <!-- Declarative use of custom elements -->
+        <card title="Header script" text="Elementa.">
+            <card title="Nested card" text="It works perfectly!"></card>
+        </card>
+
+        <!-- Programmatically use of custom elements -->
+        <script>
+            window.addEventListener("load", function() {
+                
+                // Create a child card
+                let child = elementa.render.tag("card", {
+                    title: "JS Child",
+                    text: "Created in JavaScript"
+                });
+
+                // Create a parent card and nest the child inside
+                let parent = elementa.render.tag("card", {
+                    title: "JS Parent",
+                    text: "Includes another card"
+                }, [child]);
+
+                document.body.appendChild(parent);
+            });
+        </script>
+        
+    </body>
+</html>
