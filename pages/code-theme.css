@@ -1,5 +1,5 @@
 pre, code {
-  background-color: #f8f8f8;
+  background-color: #f2f9fe;
   color: #333;
   font-family: monospace;
 }
@@ -11,12 +11,7 @@ pre {
   border-radius: 4px;
 }
 
-pre code {
-  background-color: #f8f8f8;
-}
-
 code {
-  background-color: #f2f9fe;
   padding: 0.2em 0.4em;
   border-radius: 4px;
 }
