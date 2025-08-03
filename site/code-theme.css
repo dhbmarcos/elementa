@@ -41,10 +41,10 @@ code {
   color: #999988;
   font-style: italic;
 }
-.highlight .err {
+/* .highlight .err {
   color: #a61717;
   background-color: #e3d2d2;
-}
+} */
 .highlight .gd {
   color: #000000;
   background-color: #ffdddd;
