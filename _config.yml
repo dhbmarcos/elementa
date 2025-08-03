@@ -1,8 +1,8 @@
 title: Elementa
 description: Lightweight and Minimal HTML Microframework
 github_url: https://github.com/usuario/repositorio
-donation_address: asd123
-# theme: jekyll-theme-cayman
+donation_address: bc1qnd884sd8jw20uye0y0hwgr40ztslcxavpy7j3a
+
 theme: null
 plugins:
   - jekyll-relative-links
