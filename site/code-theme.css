@@ -1,5 +1,5 @@
 pre, code {
-  background-color: #f4f4f4; /* fundo claro (edite para a cor desejada) */
+  background-color: #f8f8f8; /* fundo claro (edite para a cor desejada) */
   color: #333;
   font-family: monospace;
 }
@@ -7,7 +7,7 @@ pre, code {
 pre {
   padding: 1em;
   overflow-x: auto;
-  border-left: 4px solid #2196F3; /* opcional */
+  border-left: 4px solid #2196f3; /* opcional */
   border-radius: 4px;
 }
 
