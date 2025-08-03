@@ -1,12 +1,13 @@
-title: Elementa
-description: Lightweight and Minimal HTML Microframework
-github_url: https://github.com/usuario/repositorio
+title:            Elementa
+description:      Lightweight and Minimal HTML Microframework
+github_url:       https://github.com/usuario/repositorio
 donation_address: bc1qnd884sd8jw20uye0y0hwgr40ztslcxavpy7j3a
 
-theme: null
+theme:       null
+markdown:    kramdown
+highlighter: rouge
 plugins:
   - jekyll-relative-links
 relative_links:
-  enabled: true
+  enabled:     true
   collections: true
-markdown: kramdown
