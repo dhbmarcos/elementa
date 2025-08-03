@@ -1,7 +1,22 @@
+pre, code {
+  background-color: #f4f4f4; /* fundo claro (edite para a cor desejada) */
+  color: #333;
+  font-family: monospace;
+}
+
 pre {
-  border-left: 4px solid #2196F3;
+  padding: 1em;
+  overflow-x: auto;
+  border-left: 4px solid #2196F3; /* opcional */
   border-radius: 4px;
 }
+
+code {
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+/* GitHub rouge-themes */
 
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
