@@ -130,7 +130,7 @@ Use the `inner` id to render child elements inside the template at position spec
 
 You can also generate cards programmatically using JavaScript:
 
-```javascript
+```js
 <script>
     window.addEventListener("load", function() {
         // Create a child card
