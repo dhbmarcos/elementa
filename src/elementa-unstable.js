@@ -13,17 +13,17 @@ window.elementa = {
     "render": {
 
         /**
-         * Renders a template by tag name, applying properties and children.
+         * Renders a template by tag name, applying attributes and children.
          *
          * @param {string} tag                           Tag name of the custom element/template.
-         * @param {Object.<string, any>} [properties={}] Object with property values, mapped by id.
+         * @param {Object.<string, any>} [attributes={}] Object with attribute values, mapped by id.
          * @param {Array<Node>} [children=[]]            Child nodes to be rendered inside #inner or the root.
          *
          * @returns {Element|null} The rendered DOM node or null if not found.
          */
-        "tag": function(tag, properties, children) {
-            if (typeof properties === "undefined") {
-                properties = {};
+        "tag": function(tag, attributes, children) {
+            if (typeof attributes === "undefined") {
+                attributes = {};
             }
             if (typeof children === "undefined") {
                 children = [];
@@ -37,10 +37,10 @@ window.elementa = {
 
             let clone = template.cloneNode(true);
 
-            for (let property in properties) {
-                let target = clone.querySelector("#" + property);
+            for (let attribute in attributes) {
+                let target = clone.querySelector("#" + attribute);
                 if (target) {
-                    let value = properties[property];
+                    let value = attributes[attribute];
                     if (value instanceof Node) {
                         target.innerHTML = "";
                         target.appendChild(value);
@@ -67,19 +67,19 @@ window.elementa = {
         "page": function() {
 
             /**
-             * Extracts attribute properties from an element as a plain object.
+             * Extracts attribute attributes from an element as a plain object.
              *
              * @param {Element} element - The DOM element.
              *
              * @returns {Object.<string, string>} Object with attribute names and values.
              */
-            function extract_properties(element)
+            function extract_attributes(element)
             {
-                let properties = {};
+                let attributes = {};
                 for (let attribute of element.attributes) {
-                    properties[attribute.name] = attribute.value;
+                    attributes[attribute.name] = attribute.value;
                 }
-                return properties;
+                return attributes;
             }
 
             /**
@@ -128,15 +128,15 @@ window.elementa = {
                             continue;
                         }
 
-                        let properties = extract_properties(original_element);
+                        let attributes = extract_attributes(original_element);
                         let children   = [];
                         for (let child of original_element.children)
                         {
-                            let inner_properties = extract_properties(child);
-                            children.push(window.elementa.render.tag(child.tagName, inner_properties));
+                            let inner_attributes = extract_attributes(child);
+                            children.push(window.elementa.render.tag(child.tagName, inner_attributes));
                         }
 
-                        let new_element = window.elementa.render.tag(tag, properties, children);
+                        let new_element = window.elementa.render.tag(tag, attributes, children);
                         original_element.replaceWith(new_element);
                     }
                 }
