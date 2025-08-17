@@ -17,7 +17,7 @@
                 border-color: #3399cc;
             }
         </style>
-        
+
         <!-- Script included in the head! -->
         <script src="../src/elementa-unstable.js"></script>
     </head>
@@ -31,15 +31,26 @@
             <small>by Elementa</small>
         </template>
 
+        <template id="item" tag="li"></template>
+
         <!-- Declarative use of custom elements -->
         <card title="Header script" text="Elementa.">
             <card title="Nested card" text="It works perfectly!"></card>
         </card>
 
+        <h1>Container</h1>
+        <div id="container"></div>
+
+
+        <h1>List</h1>
+        <div>
+            <ul id="items"></ul>
+        </div>
+
         <!-- Programmatically use of custom elements -->
         <script>
             window.addEventListener("load", function() {
-                
+
                 // Create a child card
                 let child = elementa.render.tag("card", {
                     title: "JS Child",
@@ -52,9 +63,15 @@
                     text: "Includes another card"
                 }, [child]);
 
-                document.body.appendChild(parent);
+                document.getElementById("container").appendChild(parent);
+
+                // Fill itens
+                for (let position = 0; position < 5; position++) {
+                    item = elementa.render.tag("item", null, `item ${position}`);
+                    document.getElementById("items").appendChild(item);
+                }
             });
         </script>
-        
+
     </body>
 </html>

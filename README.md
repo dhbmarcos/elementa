@@ -45,9 +45,9 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
                     border-color: #3399cc;
                 }
             </style>
-            
+
             <!-- Script included in the head! -->
-            <script src="https://elementa.js.org/dist/0.3.0.js"></script>
+            <script src="https://elementa.js.org/dist/0.4.0.js"></script>
         </head>
         <body>
 
@@ -76,17 +76,17 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
 Use the CDN link for quick setup:
 
 ```html
-<script src="https://elementa.js.org/dist/0.3.0.js"></script>
+<script src="https://elementa.js.org/dist/0.4.0.js"></script>
 ```
 
-Replace `0.3.0` with the desired version number. See GitHub repository for available versions.
+Replace `0.4.0` with the desired version number. See GitHub repository for available versions.
 
 ### Offline
 
-Download [elementa-0.3.0.min.js](dist/elementa-0.3.0.min.js) to your project and include it in your HTML, for example:
+Download [elementa-0.4.0.min.js](dist/elementa-0.4.0.min.js) to your project and include it in your HTML, for example:
 
 ```html
-<script src="elementa-0.3.0.min.js"></script>
+<script src="elementa-0.4.0.min.js"></script>
 ```
 
 ## How to Use Elementa
@@ -96,7 +96,7 @@ Download [elementa-0.3.0.min.js](dist/elementa-0.3.0.min.js) to your project and
     ```html
     <html>
         <head>
-            <script src="https://elementa.js.org/dist/0.3.0.js"></script>
+            <script src="https://elementa.js.org/dist/0.4.0.js"></script>
         </head>
     </html>
     ```
@@ -123,6 +123,8 @@ Download [elementa-0.3.0.min.js](dist/elementa-0.3.0.min.js) to your project and
 When the page loads, elementa.js automatically replaces every custom tag (like `<card>`) matching a template with the rendered DOM. Use the `id` attribute in the `<template>` to define your custom tag name, like `card` in the example above.
 
 Use the `id` attributes in your template to bind properties from the custom tag attributes. For example, the `title` attribute of `<card>` will populate the `<h1 id="title"></h1>` element inside the template.
+
+Use the `tag` attributes in your template to define the root element of the template.
 
 Use the `inner` id to render child elements inside the template at position specified. If you not specify `inner`, the children will be appended to the end of the template.
 
@@ -162,7 +164,7 @@ Parameters:
 
 - *string* **tag**: (required) The tag name of your custom element, e.g. "card".
 - *Object* **properties**: (optional) Object mapping property names to values.
-- *Array*  **children**: (optional) Array of child Nodes.
+- *Array*  **children**: (optional) Array of child Nodes or custom content.
 
 Returns: The rendered DOM Element or *null*.
 
