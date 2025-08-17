@@ -45,7 +45,7 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
                     border-color: #3399cc;
                 }
             </style>
-            
+
             <!-- Script included in the head! -->
             <script src="https://elementa.js.org/dist/0.3.0.js"></script>
         </head>
@@ -124,6 +124,8 @@ When the page loads, elementa.js automatically replaces every custom tag (like `
 
 Use the `id` attributes in your template to bind properties from the custom tag attributes. For example, the `title` attribute of `<card>` will populate the `<h1 id="title"></h1>` element inside the template.
 
+Use the `tag` attributes in your template to define the root element of the template.
+
 Use the `inner` id to render child elements inside the template at position specified. If you not specify `inner`, the children will be appended to the end of the template.
 
 ## JavaScript API
@@ -162,7 +164,7 @@ Parameters:
 
 - *string* **tag**: (required) The tag name of your custom element, e.g. "card".
 - *Object* **properties**: (optional) Object mapping property names to values.
-- *Array*  **children**: (optional) Array of child Nodes.
+- *Array*  **children**: (optional) Array of child Nodes or custom content.
 
 Returns: The rendered DOM Element or *null*.
 

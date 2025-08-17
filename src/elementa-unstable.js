@@ -92,11 +92,15 @@ window.elementa = {
             {
                 window.elementa.templates = {};
                 for (let template of document.querySelectorAll("template")) {
-                    let id = template.getAttribute("id");
-                    if (!id) {
+                    let id  = template.getAttribute("id");
+                    let tag = template.getAttribute("tag");
+                    if (!id && !tag) {
                         continue;
                     }
-                    let tag = document.createElement(id);
+                    if (!tag) {
+                        tag = id;
+                    }
+                    tag = document.createElement(tag);
 
                     for (let attribute of template.attributes) {
                         if (attribute.name == "id") {
@@ -121,8 +125,7 @@ window.elementa = {
             function render_tags()
             {
                 for (let template of Object.keys(window.elementa.templates)) {
-                    let tags = document.querySelectorAll(template);
-                    for (let tag of tags) {
+                    for (let tag of document.querySelectorAll(template)) {
                         if (tag.closest("template")) {
                             continue;
                         }

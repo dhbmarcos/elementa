@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>Elementa Example</title>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
         <style>
             card {
                 display:       block;
@@ -32,7 +31,7 @@
             <small>by Elementa</small>
         </template>
 
-        <template id="item"></template>
+        <template id="item" tag="li"></template>
 
         <!-- Declarative use of custom elements -->
         <card title="Header script" text="Elementa.">
@@ -44,8 +43,8 @@
 
 
         <h1>List</h1>
-        <div class="w3-container">
-            <ul id="items" class="w3-ul"></ul>
+        <div>
+            <ul id="items"></ul>
         </div>
 
         <!-- Programmatically use of custom elements -->
