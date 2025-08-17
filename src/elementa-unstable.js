@@ -13,15 +13,15 @@ window.elementa = {
     "render": {
 
         /**
-         * Renders a template by tag name, applying attributes and children.
+         * Renders a template by template idetification, applying attributes and children.
          *
-         * @param {string} tag                           Tag name of the custom element/template.
+         * @param {string} template                      Template idetification of the custom element/template.
          * @param {Object.<string, any>} [attributes={}] Object with attribute values, mapped by id.
          * @param {Array<Node>} [children=[]]            Child nodes to be rendered inside #inner or the root.
          *
          * @returns {Element|null} The rendered DOM node or null if not found.
          */
-        "tag": function(tag, attributes, children) {
+        "tag": function(template, attributes, children) {
             if (!attributes) {
                 attributes = {};
             }
@@ -29,7 +29,7 @@ window.elementa = {
                 children = [];
             }
 
-            let template = window.elementa.templates[tag.toUpperCase()];
+            template = window.elementa.templates[template.toUpperCase()];
             if (!template)
             {
                 return null;
@@ -47,7 +47,15 @@ window.elementa = {
 
             if (children.length > 0) {
                 let container = clone.querySelector("#inner") || clone;
-                for (let child of children) {
+                if (children instanceof Array) {
+                    for (let child of children) {
+                        container.appendChild(child);
+                    }
+                } else if (children instanceof Node) {
+                    container.appendChild(children);
+                } else {
+                    let child = document.createElement("spam", children);
+                    child.innerHTML = children;
                     container.appendChild(child);
                 }
             }
@@ -83,21 +91,18 @@ window.elementa = {
             function load_templates()
             {
                 window.elementa.templates = {};
-                let templates = document.querySelectorAll("template");
-
-                for (let template of templates) {
+                for (let template of document.querySelectorAll("template")) {
                     let id = template.getAttribute("id");
                     if (!id) {
                         continue;
                     }
                     let tag = document.createElement(id);
 
-                    let attributes = template.attributes;
-                    for (let attribute of attributes) {
+                    for (let attribute of template.attributes) {
                         if (attribute.name == "id") {
                             continue;
                         }
-                        tag.setAttribute(attribute.id, attribute.value);
+                        tag.setAttribute(attribute.name, attribute.value);
                     }
 
                     let content = template.innerHTML;
@@ -105,7 +110,7 @@ window.elementa = {
                         tag.innerHTML = content;
                     }
 
-                        window.elementa.templates[id.toUpperCase()] = tag;
+                    window.elementa.templates[id.toUpperCase()] = tag;
                 }
             }
 
@@ -115,24 +120,23 @@ window.elementa = {
              */
             function render_tags()
             {
-                let tags = Object.keys(window.elementa.templates);
-                for (let tag of tags) {
-                    let original_elements = document.querySelectorAll(tag);
-                    for (let original_element of original_elements) {
-                        if (original_element.closest("template")) {
+                for (let template of Object.keys(window.elementa.templates)) {
+                    let tags = document.querySelectorAll(template);
+                    for (let tag of tags) {
+                        if (tag.closest("template")) {
                             continue;
                         }
 
-                        let attributes = extract_attributes(original_element);
+                        let attributes = extract_attributes(tag);
                         let children   = [];
-                        for (let child of original_element.children)
+                        for (let child of tag.children)
                         {
                             let inner_attributes = extract_attributes(child);
                             children.push(window.elementa.render.tag(child.tagName, inner_attributes));
                         }
 
-                        let new_element = window.elementa.render.tag(tag, attributes, children);
-                        original_element.replaceWith(new_element);
+                        let new_content = window.elementa.render.tag(template, attributes, children);
+                        tag.replaceWith(new_content);
                     }
                 }
             }

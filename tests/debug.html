@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Elementa Example</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
         <style>
             card {
                 display:       block;
@@ -17,7 +18,7 @@
                 border-color: #3399cc;
             }
         </style>
-        
+
         <!-- Script included in the head! -->
         <script src="../src/elementa-unstable.js"></script>
     </head>
@@ -31,15 +32,26 @@
             <small>by Elementa</small>
         </template>
 
+        <template id="item"></template>
+
         <!-- Declarative use of custom elements -->
         <card title="Header script" text="Elementa.">
             <card title="Nested card" text="It works perfectly!"></card>
         </card>
 
+        <h1>Container</h1>
+        <div id="container"></div>
+
+
+        <h1>List</h1>
+        <div class="w3-container">
+            <ul id="items" class="w3-ul"></ul>
+        </div>
+
         <!-- Programmatically use of custom elements -->
         <script>
             window.addEventListener("load", function() {
-                
+
                 // Create a child card
                 let child = elementa.render.tag("card", {
                     title: "JS Child",
@@ -52,9 +64,15 @@
                     text: "Includes another card"
                 }, [child]);
 
-                document.body.appendChild(parent);
+                document.getElementById("container").appendChild(parent);
+
+                // Fill itens
+                for (let position = 0; position < 5; position++) {
+                    item = elementa.render.tag("item", null, `item ${position}`);
+                    document.getElementById("items").appendChild(item);
+                }
             });
         </script>
-        
+
     </body>
 </html>
