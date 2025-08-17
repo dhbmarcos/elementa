@@ -22,10 +22,10 @@ window.elementa = {
          * @returns {Element|null} The rendered DOM node or null if not found.
          */
         "tag": function(tag, attributes, children) {
-            if (typeof attributes === "undefined") {
+            if (!attributes) {
                 attributes = {};
             }
-            if (typeof children === "undefined") {
+            if (!children) {
                 children = [];
             }
 
@@ -41,12 +41,7 @@ window.elementa = {
                 let target = clone.querySelector("#" + attribute);
                 if (target) {
                     let value = attributes[attribute];
-                    if (value instanceof Node) {
-                        target.innerHTML = "";
-                        target.appendChild(value);
-                    } else {
-                        target.textContent = value;
-                    }
+                    target.innerHTML = value;
                 }
             }
 
