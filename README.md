@@ -47,7 +47,7 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
             </style>
 
             <!-- Script included in the head! -->
-            <script src="https://elementa.js.org/dist/0.3.0.js"></script>
+            <script src="https://elementa.js.org/dist/0.4.0.js"></script>
         </head>
         <body>
 
@@ -76,17 +76,17 @@ It makes creating reusable, nested UI components in plain HTML and JavaScript si
 Use the CDN link for quick setup:
 
 ```html
-<script src="https://elementa.js.org/dist/0.3.0.js"></script>
+<script src="https://elementa.js.org/dist/0.4.0.js"></script>
 ```
 
-Replace `0.3.0` with the desired version number. See GitHub repository for available versions.
+Replace `0.4.0` with the desired version number. See GitHub repository for available versions.
 
 ### Offline
 
-Download [elementa-0.3.0.min.js](dist/elementa-0.3.0.min.js) to your project and include it in your HTML, for example:
+Download [elementa-0.4.0.min.js](dist/elementa-0.4.0.min.js) to your project and include it in your HTML, for example:
 
 ```html
-<script src="elementa-0.3.0.min.js"></script>
+<script src="elementa-0.4.0.min.js"></script>
 ```
 
 ## How to Use Elementa
@@ -96,7 +96,7 @@ Download [elementa-0.3.0.min.js](dist/elementa-0.3.0.min.js) to your project and
     ```html
     <html>
         <head>
-            <script src="https://elementa.js.org/dist/0.3.0.js"></script>
+            <script src="https://elementa.js.org/dist/0.4.0.js"></script>
         </head>
     </html>
     ```
