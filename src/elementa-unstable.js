@@ -1,24 +1,24 @@
-/* 
+/*
  * Copyright (c) 2025 D. H. B. Marcos. Deo omnis gloria.
 */
 
 window.elementa = {
     /**
      * Stores loaded HTML templates, indexed by tag name.
-     * 
+     *
      * @type {Object.<string, HTMLTemplateElement>}
      */
     "templates": {},
-    
+
     "render": {
-        
+
         /**
          * Renders a template by tag name, applying properties and children.
-         * 
+         *
          * @param {string} tag                           Tag name of the custom element/template.
          * @param {Object.<string, any>} [properties={}] Object with property values, mapped by id.
          * @param {Array<Node>} [children=[]]            Child nodes to be rendered inside #inner or the root.
-         * 
+         *
          * @returns {Element|null} The rendered DOM node or null if not found.
          */
         "tag": function(tag, properties, children) {
@@ -38,10 +38,6 @@ window.elementa = {
             let clone = template.cloneNode(true);
 
             for (let property in properties) {
-                if (!properties.hasOwnProperty(property)) {
-                    continue
-                };
-                
                 let target = clone.querySelector("#" + property);
                 if (target) {
                     let value = properties[property];
@@ -67,14 +63,14 @@ window.elementa = {
         /**
          * Loads all templates in the document and renders matching tags.
          * Should be called once after DOM is loaded.
-         */        
+         */
         "page": function() {
-            
+
             /**
              * Extracts attribute properties from an element as a plain object.
-             * 
+             *
              * @param {Element} element - The DOM element.
-             * 
+             *
              * @returns {Object.<string, string>} Object with attribute names and values.
              */
             function extract_properties(element)
@@ -93,7 +89,7 @@ window.elementa = {
             {
                 window.elementa.templates = {};
                 let templates = document.querySelectorAll("template");
-                               
+
                 for (let template of templates) {
                     let id = template.getAttribute("id");
                     if (!id) {
