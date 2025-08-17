@@ -99,12 +99,13 @@ window.elementa = {
                     if (!id) {
                         continue;
                     }
-                    template.attributes.removeNamedItem("id");
-
                     let tag = document.createElement(id);
 
                     let attributes = template.attributes;
                     for (let attribute of attributes) {
+                        if (attribute.name == "id") {
+                            continue;
+                        }
                         tag.setAttribute(attribute.id, attribute.value);
                     }
 
@@ -113,9 +114,7 @@ window.elementa = {
                         tag.innerHTML = content;
                     }
 
-                    if (id) {
                         window.elementa.templates[id.toUpperCase()] = tag;
-                    }
                 }
             }
 
